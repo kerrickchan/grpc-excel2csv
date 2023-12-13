@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package grpc;
+
+service Excel2Csv {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+  rpc Convert(stream UploadFileRequest) returns (stream FileResponse) {}
+}
+
+message HelloRequest {
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message UploadFileRequest {
+  oneof request {
+    MetaData metadata = 1;
+    bytes chunk_data = 2;
+  }
+}
+
+message MetaData {
+  string filename = 1;
+  string extension = 2;
+}
+
+message FileResponse {
+  bytes chunk_data = 1;
+}

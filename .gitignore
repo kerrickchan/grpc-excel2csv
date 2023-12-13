@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__
+.DS_Store
+
+# Cache
+.cache/*
+!.cache/.gitkeep
+
+# Generated files
+grpc_*.py
+grpc_*.pyi
+
+# Test
+test/client/test.jpg
+test/server/test.txt
